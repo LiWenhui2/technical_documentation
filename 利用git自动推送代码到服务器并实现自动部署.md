@@ -41,12 +41,14 @@ git init --bare  # 初始化裸仓库，不带工作区
 ```bash
 ssh-keygen -t ed25519 -C "your_email@example.com"  # 生成 SSH 密钥对，使用 ed25519 算法
 # 按提示操作，默认保存在 ~/.ssh/id_ed25519
+# 查看公钥
+cat ~/.ssh/id_ed25519.pub
 ```
 
 ### 2. 将公钥上传到服务器
 
 ```bash
-ssh-copy-id root@your.server.ip  # 自动将公钥添加到服务器 authorized_keys 中
+ssh-copy-id root@43.159.41.42  # 自动将公钥添加到服务器 authorized_keys 中
 ```
 
 或手动将 `~/.ssh/id_ed25519.pub` 内容追加到服务器 `/root/.ssh/authorized_keys` 文件中。
@@ -58,7 +60,7 @@ ssh-copy-id root@your.server.ip  # 自动将公钥添加到服务器 authorized_
 在本地项目根目录下：
 
 ```bash
-git remote add server ssh://root@your.server.ip:/www/weChat.git  # 添加远程服务器为名为 server 的远程仓库
+git remote add server ssh://root@43.159.41.42:/www/weChat.git  # 添加远程服务器为名为 server 的远程仓库
 ```
 
 ---
